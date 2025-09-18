@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  admira-service:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - ADS_API_URL=${ADS_API_URL}
+      - CRM_API_URL=${CRM_API_URL}
+      - SINK_URL=${SINK_URL}
+      - SINK_SECRET=${SINK_SECRET}
+      - PORT=8080
+    env_file:
+      - .env
+    restart: unless-stopped
+
+  # Opcional: Agregar Prometheus/Grafana para monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./deploy/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-storage:/var/lib/grafana
+
+volumes:
+  grafana-storage:
