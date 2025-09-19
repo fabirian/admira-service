@@ -194,7 +194,7 @@ docker run -p 8080:8080 --env-file .env admira-service
 
 ## ⚠️ Suposiciones y Limitaciones
 
-Ver [assumptions.md](docs/assumptions.md) para más detalle.
+Ver [assumptions.md](assumptions.md) para más detalle.
 
 ## 🛠️ Desarrollo
 
