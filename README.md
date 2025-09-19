@@ -246,6 +246,4 @@ Logs estructurados con niveles (debug, info, warn, error) y request IDs.
 
 MIT License - ver LICENSE para detalles.
 
-🔗 Repositorio: \[https://github.com/fabirian/admira-service](https://github.com/fabirian/admira-service)
-
-📧 Contacto: \[fabirir99@gmail.com\](mailto:fabirir99@gmail.com)
+📧 Contacto: fabirir99@gmail.com
