@@ -192,43 +192,9 @@ docker build -t admira-service .
 docker run -p 8080:8080 --env-file .env admira-service  
 ```
 
-### Kubernetes (Opcional)  
-Ver directorio \`deploy/kubernetes/\`
-
 ## ⚠️ Suposiciones y Limitaciones
 
-### Suposiciones de Diseño  
-1. Matching por UTM: Se asume que los parámetros UTM son consistentes entre Ads y CRM  
-2. Un leads = Un click: Cada click de Ads se considera un lead potencial para cálculos  
-3. Currency: Todos los montos monetarios están en la misma currency (USD)  
-4. Timezones: Todas las fechas se procesan en UTC para consistencia
-
-### Limitaciones Actuales  
-1. Almacenamiento Volátil: Datos en memoria (se pierden al reiniciar el servicio)  
-2. Escalabilidad: Diseñado para cargas moderadas (~100 RPS)  
-3. Persistence: No hay base de datos persistente (solo memoria)  
-4. Cache: No implementado para endpoints de métricas  
-5. Autenticación: No requiere autenticación en endpoints (para desarrollo)
-
-### Limitaciones de Datos  
-1. UTMs Incompletos: Algunos registros pueden tener UTMs parciales o missing  
-2. Data Latency: Los datos de CRM pueden tener delay vs datos de Ads  
-3. Attribution Window: Ventana de atribución fija (no configurable)  
-4. Currency Conversion: No soporta conversión entre monedas
-
-### Dependencias Externas  
-1. Mocky.io: Los endpoints deben estar disponibles y responder en \<30s  
-2. Rate Limiting: Sin protección contra rate limiting de APIs externas  
-3. SSL: Certificados SSL válidos requeridos para conexiones HTTPS
-
-### Consideraciones de Producción  
-⛔ **NO USAR EN PRODUCCIÓN SIN:**
-
-- 🔴 Base de datos persistente (PostgreSQL)
-- 🔴 Sistema de autenticación (JWT/OAuth)  
-- 🔴 Rate limiting y protección DDoS
-- 🔴 Monitoring y alerting (Prometheus/Grafana)
-- 🔴 Backup y recovery procedures
+Ver [assumptions.md](docs/assumptions.md) para más detalle.
 
 ## 🛠️ Desarrollo
 
