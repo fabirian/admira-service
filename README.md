@@ -242,8 +242,7 @@ Ver directorio \`deploy/kubernetes/\`
 ### Logging  
 Logs estructurados con niveles (debug, info, warn, error) y request IDs.
 
-## 📄 Licencia
+## 🧑‍💻 Autor
 
-MIT License - ver LICENSE para detalles.
-
+Arlex Fabian Galindez Rivera
 📧 Contacto: fabirir99@gmail.com
