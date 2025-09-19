@@ -120,3 +120,25 @@ func (h *Handler) ReadyCheck(c *gin.Context) {
 	
 	c.JSON(http.StatusOK, gin.H{"status": "ready"})
 }
+
+func (h *Handler) RunExport(c *gin.Context) {
+	date := c.Query("date")
+	if date == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Date parameter is required"})
+		return
+	}
+
+	// Validar formato de fecha
+	_, err := time.Parse("2006-01-02", date)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid date format. Use YYYY-MM-DD"})
+		return
+	}
+
+	// En una implementación real, aquí llamarías al servicio de exportación
+	// Por ahora, solo devolvemos un mensaje de éxito
+	c.JSON(http.StatusOK, gin.H{
+		"message": "Export initiated",
+		"date":    date,
+	})
+}
